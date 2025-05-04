@@ -93,7 +93,8 @@ if audio_bytes:
         
         # Generate speech with cloned voice
         with tempfile.NamedTemporaryFile(delete=False, suffix=".mp3") as temp_output:
-            voice_cloner.apply_voice_style(translated_text, temp_output.name)
+            # Pass the language to the voice cloner
+            voice_cloner.apply_voice_style(translated_text, temp_output.name, language=target_language.lower())
             
             # Display results
             st.subheader("Original Text")
